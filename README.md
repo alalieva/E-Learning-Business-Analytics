@@ -6,4 +6,9 @@ The project combines business KPIs, student behavior, acquisition performance an
 The dashboard was built using Tableau. 
 [You can explore the interactive Tableau dashboard here](https://public.tableau.com/app/profile/alesia.alieva/viz/E-LearningBusinessAnalytics/DashboardOverview).
 
+<p align="center">
+  <img src="assets/1s.png" width="49%">
+  <img src="assets/2s.png" width="49%">
+</p>
+
 ⚠️ The dataset used in this project is synthetic and was generated with **Claude AI** for portfolio purposes.
