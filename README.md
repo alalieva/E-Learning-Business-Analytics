@@ -1,4 +1,5 @@
 # E-Learning Business Analytics
+## Overview
 
 This interactive Tableau dashboard is analyzing the performance of a fictional online learning platform.
 The project combines business KPIs, student behavior, acquisition performance and course-level insights in one report to support data-driven decisions.
@@ -27,13 +28,13 @@ The project combines business KPIs, student behavior, acquisition performance an
 
 ## Business Value
 
-The dashboard helps:
-🔹 Monitor growth trends and core KPIs
-🔹 Evaluate acquisition channel effectiveness
-🔹 Improve retention and cross-sell opportunities
-🔹 Optimize pricing and course portfolio decisions
-🔹 Identify high-performing and underperforming courses
-🔹 Better understand customer purchase behavior
+The dashboard helps:  
+🔹 Monitor growth trends and core KPIs  
+🔹 Evaluate acquisition channel effectiveness  
+🔹 Improve retention and cross-sell opportunities  
+🔹 Optimize pricing and course portfolio decisions  
+🔹 Identify high-performing and underperforming courses  
+🔹 Better understand customer purchase behavior  
 
 ## Data Pipeline
 The dashboard was built through a structured analytics workflow:  
@@ -287,12 +288,17 @@ Useful for comparing courses with different lengths.
 ### Dashboard Interactivity
 
 The dashboard includes interactive controls for flexible analysis:  
-
 - Year Switcher - Use the button in the top-right corner to switch between years and compare performance over time.  
 - Hidden Filter Panel - Click the filter button to open additional filters.  
 - Charts respond to selections and filters, allowing deeper exploration of trends, revenue drivers and student behavior.  
 
+### UX Design Notes
 
+The dashboard was designed with a clear information hierarchy:  
+- KPIs at the top for quick scanning  
+- Detailed analysis in the center  
+- Supporting metrics on the side  
+- Hidden filters to keep the layout clean and focused  
 
 
 
