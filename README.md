@@ -247,3 +247,52 @@ The dashboard was built through a structured analytics workflow:
 
 4. **Visualization**  
    Processed marts were connected to Tableau to build the final interactive dashboard.
+
+## Dashboard Guide
+### KPI Definitions
+
+<ins>**Core KPIs**<ins>   
+- **Revenue** – net payment amount (total payments minus refunds).  
+- **Paying Students** – number of students who made at least one successful payment in the selected year.  
+- **ARPPU** – average revenue per paying student.  
+- **Refund Rate** – percentage of refunded transactions relative to the total number of transactions.  
+
+<ins>**Growth & Retention Metrics**<ins>  
+- **Cross-sell Rate** – percentage of students who purchased two or more courses in the selected year.  
+- **Days to 2nd Purchase** – median number of days between the first and second course purchase among students whose first purchase was made in the selected year.  
+
+
+### Chart Explanations  
+
+<ins>**Student Segments (Donut Chart)** <ins>
+
+Students are grouped by number of course purchases:   
+    No Purchase = 0   
+    One-time = 1  
+    Repeat = 2–4  
+    Power = 5+  
+
+> This chart supports two segmentation modes (via filter):  
+  *All Time* – based on total purchases across all years (2023–2025).  
+  *By End of Year* – based on cumulative successful purchases made by the end of the selected year.  
+>
+
+<ins>**Content Efficiency (Scatter Plot)** <ins>
+
+Shows which courses monetize each hour of content more effectively.  
+*Revenue per Hour* - revenue normalized by course duration.  
+Useful for comparing courses with different lengths.  
+
+
+### Dashboard Interactivity
+
+The dashboard includes interactive controls for flexible analysis:  
+
+- Year Switcher - Use the button in the top-right corner to switch between years and compare performance over time.  
+- Hidden Filter Panel - Click the filter button to open additional filters.  
+- Charts respond to selections and filters, allowing deeper exploration of trends, revenue drivers and student behavior.  
+
+
+
+
+
