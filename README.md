@@ -3,7 +3,6 @@
 This interactive Tableau dashboard is analyzing the performance of a fictional online learning platform.
 The project combines business KPIs, student behavior, acquisition performance and course-level insights in one report to support data-driven decisions.
 
-The dashboard was built using Tableau. 
 [You can explore the interactive Tableau dashboard here](https://public.tableau.com/app/profile/alesia.alieva/viz/E-LearningBusinessAnalytics/DashboardOverview).
 
 <p align="center">
@@ -100,7 +99,7 @@ The dashboard was built through a structured analytics workflow:
     val = result.iloc[0, 0]
     print(f'   {table}.{pk} — duplicates: {val}')
   ```
-See full examples in
+    See full examples in [data_processing/1_Quality_checks_examples.ipynb](data_processing/1_Quality_checks_examples.ipynb)
 
 
 - **Staging Layer**  
