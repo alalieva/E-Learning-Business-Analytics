@@ -1,4 +1,13 @@
 # E-Learning Business Analytics
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Business Questions and Value](#business-questions-and-value)
+- [Data Pipeline](#data-pipeline)
+- [Dashboard Guide](#dashboard-guide)
+
+
 ## Overview
 
 This interactive Tableau dashboard is analyzing the performance of a fictional online learning platform.
@@ -13,8 +22,9 @@ The project combines business KPIs, student behavior, acquisition performance an
 
 ⚠️ The dataset used in this project is synthetic and was generated with **Claude AI** for portfolio purposes.
 
-## Business questions
+## Business Questions and Value  
 
+**Questions**
 🔹 How is revenue changing over time and compared to last year?  
 🔹 How many students are converting into paying customers?  
 🔹 How much revenue does each paying student generate?  
@@ -26,8 +36,7 @@ The project combines business KPIs, student behavior, acquisition performance an
 🔹 Which courses generate the highest revenue per hour of content?  
 🔹 Where are refund rates higher and where should quality be reviewed?  
 
-## Business Value
-
+**Business Value**
 The dashboard helps:  
 🔹 Monitor growth trends and core KPIs  
 🔹 Evaluate acquisition channel effectiveness  
