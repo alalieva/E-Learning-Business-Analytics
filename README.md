@@ -12,6 +12,19 @@ The project combines business KPIs, student behavior, acquisition performance an
 
 ⚠️ The dataset used in this project is synthetic and was generated with **Claude AI** for portfolio purposes.
 
+## Business questions
+
+🔹 How is revenue changing over time and compared to last year?  
+🔹 How many students are converting into paying customers?  
+🔹 How much revenue does each paying student generate?  
+🔹 Which acquisition channels drive the best results?  
+🔹 Which course categories and price tiers perform best?  
+🔹 How many students return for additional purchases?  
+🔹 How long does it take to make a second purchase?  
+🔹 What share of users are one-time, repeat, or power buyers?  
+🔹 Which courses generate the highest revenue per hour of content?  
+🔹 Where are refund rates higher and where should quality be reviewed?  
+
 ## Data Pipeline
 The dashboard was built through a structured analytics workflow:  
 
