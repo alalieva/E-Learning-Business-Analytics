@@ -5,7 +5,7 @@
 - [Overview](#overview)
 - [Business Questions and Value](#business-questions-and-value)
 - [Data Pipeline](#data-pipeline)
-  - [Data Processing](#data-processing)
+  - [Data Processing (Python + DuckDB)](#data-processing-python-duckdb)
 - [Dashboard Guide](#dashboard-guide)
   - [KPI Definitions](#KPI-Definitions)
   - [Chart Explanations](#chart-explanations)
