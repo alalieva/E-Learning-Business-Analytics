@@ -61,10 +61,11 @@ The dashboard was built through a structured analytics workflow:
     ```
 - **Quality Checks**
   
-   Validation steps included null checks, duplicates review and business logic controls.
+  Validation steps included null checks, duplicates review and business logic controls.
 
   Examples:
   ```sql
+  
   --Check required fields for NULL values.
   SELECT
     COUNT(*) AS total_rows,
@@ -102,11 +103,38 @@ The dashboard was built through a structured analytics workflow:
     See full examples in [data_processing/1_Quality_checks_examples.ipynb](data_processing/1_Quality_checks_examples.ipynb)
 
 
-- **Staging Layer**  
-   Cleaned and standardized intermediate tables were created for further transformations.
+- **Staging Layer**
+  
+  Cleaned and standardized intermediate tables were created for further transformations.
+ 
+  Examples:
+  ```sql
+  --Added price_tier - a helper category.
 
-- **Data Marts**  
-   Final analytical tables were built for KPI calculations, segmentation, retention.
+  SELECT
+    course_id,
+    TRIM(title)                          AS title,
+    TRIM(category)                       AS category,
+    instructor_id,
+    CAST(price AS DECIMAL(10,2))         AS price,
+    CAST(duration_hours AS DECIMAL(6,1)) AS duration_hours,
+    CASE
+        WHEN CAST(price AS INTEGER) <=  9 THEN 'intro'     -- $9
+        WHEN CAST(price AS INTEGER) <= 29 THEN 'standard'  -- $29
+        WHEN CAST(price AS INTEGER) <= 49 THEN 'advanced'  -- $49
+        ELSE                                   'premium'   -- $99
+    END                                  AS price_tier
+
+  FROM courses
+  WHERE course_id IS NOT NULL
+    AND CAST(price AS FLOAT) > 0
+    AND CAST(duration_hours AS FLOAT) > 0
+  ```
+See full examples in [data_processing/2_Staging_examples.ipynb](data_processing/2_Staging_examples.ipynb)
+
+- **Data Marts**
+  
+  Final analytical tables were built for KPI calculations, segmentation, retention.
 
 4. **Visualization**  
    Processed marts were connected to Tableau to build the final interactive dashboard.
