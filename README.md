@@ -20,7 +20,7 @@ The dashboard was built through a structured analytics workflow:
 
 1. **Synthetic Data Generation**
    
-   Raw source data was generated with Claude AI in CSV format.
+   Raw source data was generated with Claude AI.
 
 3. **Raw Data Layer**
    
@@ -39,7 +39,27 @@ The dashboard was built through a structured analytics workflow:
 
    All data preparation was completed in Jupyter Notebook using Python + DuckDB.
    SQL queries were executed in DuckDB for cleaning, joins, transformations and metric preparation.
-
+   
+   Each stage generated new CSV tables that were used as inputs for the next step:
+    ```
+    ├── data/
+       ├── raw/
+       │   ├── courses.csv
+       │   ├── enrollments.csv
+       │   ├── students.csv
+       │   ├── instructors.csv
+       │   └── payments.csv
+       ├── staging/
+       │   ├── stg_courses.csv
+       │   ├── stg_enrollments.csv
+       │   ├── stg_students.csv
+       │   ├── stg_instructors.csv
+       │   └── stg_payments.csv
+       └── marts/
+           ├── mart_enrollments_detail.csv
+           ├── mart_dim_courses.csv
+           └── mart_dim_students.csv
+    ```
 - **Quality Checks**
   
    Validation steps included null checks, duplicates review and business logic controls.
@@ -80,14 +100,14 @@ The dashboard was built through a structured analytics workflow:
     val = result.iloc[0, 0]
     print(f'   {table}.{pk} — duplicates: {val}')
   ```
-
+See full examples in
 
 
 - **Staging Layer**  
    Cleaned and standardized intermediate tables were created for further transformations.
 
 - **Data Marts**  
-   Final analytical tables were built for KPI calculations, segmentation, retention, and dashboard reporting.
+   Final analytical tables were built for KPI calculations, segmentation, retention.
 
 4. **Visualization**  
    Processed marts were connected to Tableau to build the final interactive dashboard.
