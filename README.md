@@ -7,7 +7,10 @@
 - [Data Pipeline](#data-pipeline)
   - [Data Processing](#data-processing)
 - [Dashboard Guide](#dashboard-guide)
-
+  - [KPI Definitions](#KPI-Definitions)
+  - [Chart Explanations](#chart-explanations)
+  - [Dashboard Interactivity](#dashboard-interactivity)
+  - [UX Design Notes](#UX-design-notes)
 
 ## Overview
 
@@ -54,11 +57,11 @@ The dashboard was built through a structured analytics workflow:
 
 [Claude AI] → raw CSVs → [Python + DuckDB] → quality checks → staging → marts → [Tableau]  
 
-1. **Synthetic Data Generation**
+1. ### Synthetic Data Generation
    
    Raw source data was generated with Claude AI.
 
-3. **Raw Data Layer**
+3. ### Raw Data Layer
    
    Multiple source tables were stored as raw CSV files:
 
@@ -71,7 +74,7 @@ The dashboard was built through a structured analytics workflow:
     | instructors | Instructor details | instructor_id, instructor_name, tier, subject_area |
 
 
-3. **Data Processing (Python + DuckDB)**
+3. ### Data Processing (Python + DuckDB)
 
    All data preparation was completed in Jupyter Notebook using Python + DuckDB.
    SQL queries were executed in DuckDB for cleaning, joins, transformations and metric preparation.
