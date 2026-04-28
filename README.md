@@ -100,7 +100,7 @@ The dashboard was built through a structured analytics workflow:
     val = result.iloc[0, 0]
     print(f'   {table}.{pk} — duplicates: {val}')
   ```
-    See full examples in [data_processing/1_Quality_checks_examples.ipynb](data_processing/1_Quality_checks_examples.ipynb)
+    See all examples in [data_processing/1_Quality_checks_examples.ipynb](data_processing/1_Quality_checks_examples.ipynb)
 
 
 - **Staging Layer**
@@ -130,11 +130,97 @@ The dashboard was built through a structured analytics workflow:
     AND CAST(price AS FLOAT) > 0
     AND CAST(duration_hours AS FLOAT) > 0
   ```
-See full examples in [data_processing/2_Staging_examples.ipynb](data_processing/2_Staging_examples.ipynb)
+    See all examples in [data_processing/2_Staging_examples.ipynb](data_processing/2_Staging_examples.ipynb)
 
 - **Data Marts**
   
   Final analytical tables were built for KPI calculations, segmentation, retention.
+  
+  Examples:
+  ```sql
+  WITH
+
+  -- ─────────────── Aggregate all payments at the student level ──────────────────────
+  student_payments AS (
+    SELECT
+        student_id,
+        
+        -- Count of successful payment transactions
+        SUM(CAST(is_success  AS INTEGER))                           AS successful_payments,
+
+        -- Unique purchased courses (successful payments only)
+        COUNT(DISTINCT CASE WHEN is_success THEN course_id END)     AS courses_purchased,
+
+        -- Timeline of when the student was active
+        MIN(CASE WHEN is_success THEN payment_date END)             AS first_payment_date,
+        MAX(CASE WHEN is_success THEN payment_date END)             AS last_payment_date,
+        DATEDIFF('day',
+            MIN(CASE WHEN is_success THEN payment_date END),
+            MAX(CASE WHEN is_success THEN payment_date END)
+        )                                                           AS days_active
+
+    FROM stg_payments
+    GROUP BY student_id
+  ),
+
+  -- ─────────────── Calculate days to the second purchase ──────────────────────
+  -- Cross-sell metric: how quickly a one-time buyer returns
+  purchase_sequence AS (
+    SELECT
+        student_id,
+        payment_date,
+        ROW_NUMBER() OVER (
+            PARTITION BY student_id
+            ORDER BY payment_date
+        ) AS purchase_num
+    FROM stg_payments
+    WHERE is_success = TRUE
+  ),
+
+  days_to_second AS (
+    SELECT
+        first_buy.student_id,
+        DATEDIFF('day',
+            first_buy.payment_date,
+            second_buy.payment_date
+        ) AS days_to_second_purchase
+    FROM purchase_sequence first_buy
+    LEFT JOIN purchase_sequence second_buy
+           ON first_buy.student_id  = second_buy.student_id
+          AND second_buy.purchase_num = 2
+    WHERE first_buy.purchase_num = 1
+  )
+
+  -- ─────────────── Final table: student + payment summary ──────────────────────
+  SELECT
+    s.student_id,
+    s.reg_date,
+    s.cohort_month,
+    s.reg_year,
+    s.country,
+    s.acquisition_channel,
+
+    
+    COALESCE(p.courses_purchased,   0) AS courses_purchased,
+    p.first_payment_date,
+    p.last_payment_date,
+    COALESCE(p.days_active, 0)         AS days_active,
+    d.days_to_second_purchase,
+
+    -- Segmentation by purchase behavior (no_purchase < one_time < repeat < power)
+    CASE
+        WHEN COALESCE(p.successful_payments, 0) = 0 THEN 'no_purchase'
+        WHEN COALESCE(p.courses_purchased,   0) = 1 THEN 'one_time'
+        WHEN COALESCE(p.courses_purchased,   0) <= 4 THEN 'repeat'
+        ELSE                                              'power'
+    END AS student_segment
+
+  FROM stg_students s
+  LEFT JOIN student_payments p  ON s.student_id = p.student_id
+  LEFT JOIN days_to_second   d  ON s.student_id = d.student_id
+
+  ```
+      See all examples in [data_processing/3_Marts_examples.ipynb](data_processing/3_Marts_examples.ipynb)
 
 4. **Visualization**  
    Processed marts were connected to Tableau to build the final interactive dashboard.
