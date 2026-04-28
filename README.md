@@ -5,7 +5,7 @@
 - [Overview](#overview)
 - [Business Questions and Value](#business-questions-and-value)
 - [Data Pipeline](#data-pipeline)
-  - [Data Processing (Python + DuckDB)](#data-processing-python-duckdb)
+  - [Data Processing](#data-processing)
 - [Dashboard Guide](#dashboard-guide)
   - [KPI Definitions](#KPI-Definitions)
   - [Chart Explanations](#chart-explanations)
@@ -74,7 +74,7 @@ The dashboard was built through a structured analytics workflow:
     | instructors | Instructor details | instructor_id, instructor_name, tier, subject_area |
 
 
-3. ### Data Processing (Python + DuckDB)
+3. ### Data Processing 
 
    All data preparation was completed in Jupyter Notebook using Python + DuckDB.
    SQL queries were executed in DuckDB for cleaning, joins, transformations and metric preparation.
