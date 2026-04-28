@@ -25,6 +25,16 @@ The project combines business KPIs, student behavior, acquisition performance an
 🔹 Which courses generate the highest revenue per hour of content?  
 🔹 Where are refund rates higher and where should quality be reviewed?  
 
+## Business Value
+
+The dashboard helps:
+🔹 Monitor growth trends and core KPIs
+🔹 Evaluate acquisition channel effectiveness
+🔹 Improve retention and cross-sell opportunities
+🔹 Optimize pricing and course portfolio decisions
+🔹 Identify high-performing and underperforming courses
+🔹 Better understand customer purchase behavior
+
 ## Data Pipeline
 The dashboard was built through a structured analytics workflow:  
 
