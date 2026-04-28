@@ -5,6 +5,7 @@
 - [Overview](#overview)
 - [Business Questions and Value](#business-questions-and-value)
 - [Data Pipeline](#data-pipeline)
+  - [Data Processing](#data-processing)
 - [Dashboard Guide](#dashboard-guide)
 
 
@@ -24,7 +25,8 @@ The project combines business KPIs, student behavior, acquisition performance an
 
 ## Business Questions and Value  
 
-**Questions**
+**Questions**  
+
 🔹 How is revenue changing over time and compared to last year?  
 🔹 How many students are converting into paying customers?  
 🔹 How much revenue does each paying student generate?  
@@ -36,7 +38,8 @@ The project combines business KPIs, student behavior, acquisition performance an
 🔹 Which courses generate the highest revenue per hour of content?  
 🔹 Where are refund rates higher and where should quality be reviewed?  
 
-**Business Value**
+**Business Value**  
+
 The dashboard helps:  
 🔹 Monitor growth trends and core KPIs  
 🔹 Evaluate acquisition channel effectiveness  
@@ -46,6 +49,7 @@ The dashboard helps:
 🔹 Better understand customer purchase behavior  
 
 ## Data Pipeline
+
 The dashboard was built through a structured analytics workflow:  
 
 [Claude AI] → raw CSVs → [Python + DuckDB] → quality checks → staging → marts → [Tableau]  
