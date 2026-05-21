@@ -140,7 +140,7 @@ The dashboard was built through a structured analytics workflow:
     val = result.iloc[0, 0]
     print(f'   {table}.{pk} — duplicates: {val}')
   ```
-    See all examples in [data_processing/1_Quality_checks_examples.ipynb](data_processing/1_Quality_checks_examples.ipynb)
+    See all examples in [data_processing/1_Quality_checks_examples](data_processing/1_Quality_checks_examples.ipynb)
 
 
 - **Staging Layer**
