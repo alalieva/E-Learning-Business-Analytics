@@ -258,9 +258,9 @@ The dashboard was built through a structured analytics workflow:
   FROM stg_students s
   LEFT JOIN student_payments p  ON s.student_id = p.student_id
   LEFT JOIN days_to_second   d  ON s.student_id = d.student_id
-
   ```  
-      See all examples in [data_processing/3_Marts_examples](data_processing/3_Marts_examples.ipynb)  
+
+  See all examples in [data_processing/3_Marts_examples](data_processing/3_Marts_examples.ipynb)  
 
 
 4. **Visualization**  
