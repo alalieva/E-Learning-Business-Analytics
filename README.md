@@ -260,7 +260,7 @@ The dashboard was built through a structured analytics workflow:
   LEFT JOIN days_to_second   d  ON s.student_id = d.student_id
 
   ```
-      See all examples in [data_processing/3_Marts_examples.ipynb](data_processing/3_Marts_examples.ipynb)
+      See all examples in [data_processing/3_Marts_examples](data_processing/3_Marts_examples.ipynb)
 
 4. **Visualization**  
    Processed marts were connected to Tableau to build the final interactive dashboard.
