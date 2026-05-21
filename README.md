@@ -170,7 +170,7 @@ The dashboard was built through a structured analytics workflow:
     AND CAST(price AS FLOAT) > 0
     AND CAST(duration_hours AS FLOAT) > 0
   ```
-    See all examples in [data_processing/2_Staging_examples.ipynb](data_processing/2_Staging_examples.ipynb)
+    See all examples in [data_processing/2_Staging_examples](data_processing/2_Staging_examples.ipynb)
 
 - **Data Marts**
   
@@ -259,8 +259,9 @@ The dashboard was built through a structured analytics workflow:
   LEFT JOIN student_payments p  ON s.student_id = p.student_id
   LEFT JOIN days_to_second   d  ON s.student_id = d.student_id
 
-  ```
-      See all examples in [data_processing/3_Marts_examples](data_processing/3_Marts_examples.ipynb)
+  ```  
+      See all examples in [data_processing/3_Marts_examples](data_processing/3_Marts_examples.ipynb)  
+
 
 4. **Visualization**  
    Processed marts were connected to Tableau to build the final interactive dashboard.
